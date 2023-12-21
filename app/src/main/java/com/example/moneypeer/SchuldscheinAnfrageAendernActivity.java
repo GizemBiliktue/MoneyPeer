@@ -34,6 +34,5 @@ public class SchuldscheinAnfrageAendernActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //Funktioniert push jetzt ???
     }
 }

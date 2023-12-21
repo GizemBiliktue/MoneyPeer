@@ -28,20 +28,18 @@ public class WillkommenActivity extends AppCompatActivity {
 
         // Hier kannst du weitere Aktionen für die Views festlegen, z. B. Klickereignisse usw.
         // Z.B.:
-        weiter.setOnClickListener(v -> {
-            String name = editNameText.getText().toString().trim();
+        weiter.setOnClickListener(v -> continueOnClick(editNameText.getText().toString().trim()));
+    }
 
-            if (name.isEmpty()) {
-                Toast.makeText(getApplicationContext(), "Bitte gib einen Namen ein. ", Toast.LENGTH_SHORT).show();
-            } else if (name.matches(".*\\d.*")) {
-                Toast.makeText(getApplicationContext(), "Der Name darf keine Zahlen enthalten.", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent(WillkommenActivity.this,DashboardActivity.class);
-                intent.putExtra("NAME_EXTRA", name);
-                startActivity(intent);
-
-            }
-
-        });
+    public void continueOnClick(String name) {
+        if (name.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Bitte gib einen Namen ein. ", Toast.LENGTH_SHORT).show();
+        } else if (name.matches(".*\\d.*")) {
+            Toast.makeText(getApplicationContext(), "Der Name darf keine Zahlen enthalten.", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(WillkommenActivity.this, DashboardActivity.class);
+            intent.putExtra("NAME_EXTRA", name);
+            startActivity(intent);
+        }
     }
 }
