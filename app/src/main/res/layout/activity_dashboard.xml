@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Überschrift -->
+    <TextView
+        android:id="@+id/willkommenHeader"
+        android:layout_width="365dp"
+        android:layout_height="71dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="40sp"
+        android:text="Herzlich Willkommen (Name)"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"/>
+
+    <!-- Credits Text -->
+    <TextView
+        android:id="@+id/creditsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credits"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollCredits"
+        app:layout_constraintEnd_toStartOf="@+id/deptsText"
+        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/willkommenHeader" />
+
+    <!-- Depts Text -->
+
+    <!-- Scroll Credits -->
+    <TextView
+        android:id="@+id/deptsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Depts"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollDepts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/willkommenHeader" />
+
+    <!-- Scroll Depts -->
+    <ScrollView
+        android:id="@+id/scrollCredits"
+        android:layout_width="164dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="32dp"
+        android:background="#FBFFF1"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/gefallenSendenButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/creditsText"
+        app:layout_constraintVertical_bias="0.493">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Hier wird jede Zeile der Tabelle erstellt -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#D6E1B8"
+                android:orientation="horizontal">
+
+                <!-- Linke Seite (Gefallen) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Gefallen"
+                    android:textAlignment="center" />
+
+                <!-- Rechte Seite (Status) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Status"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollDepts"
+        android:layout_width="164dp"
+        android:layout_height="300dp"
+        android:background="#FBFFF1"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/gefallenSendenButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/scrollCredits"
+        app:layout_constraintTop_toBottomOf="@+id/deptsText"
+        app:layout_constraintVertical_bias="0.493">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#D6E1B8"
+            android:orientation="vertical">
+
+            <!-- Hier wird jede Zeile der Tabelle erstellt -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Linke Seite (Gefallen) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Gefallen"
+                    android:textAlignment="center" />
+
+                <!-- Rechte Seite (Status) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Status"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons -->
+
+    <!-- Gefallen senden Button -->
+    <Button
+        android:id="@+id/gefallenSendenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="412dp"
+        android:backgroundTint="#92AA70"
+        android:text="Gefallen senden"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/willkommenHeader" />
+
+    <!-- Gefallen anfordern Button -->
+    <Button
+        android:id="@+id/gefallenAnfordernButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="90dp"
+        android:backgroundTint="#92AA70"
+        android:text="Gefallen anfordern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gefallenSendenButton"
+        app:layout_constraintVertical_bias="0.566" />
+
+    <!-- Gefallen weiterleiten Button -->
+    <Button
+        android:id="@+id/gefallenWeiterleitenButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#92AA70"
+        android:text="Gefallen weiterleiten"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gefallenAnfordernButton"
+        app:layout_constraintVertical_bias="0.375" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

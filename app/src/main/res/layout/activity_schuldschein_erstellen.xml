@@ -1,0 +1,149 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Überschrift -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="365dp"
+        android:layout_height="71dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="40sp"
+        android:text="Schuldschein erstellen"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"/>
+
+    <!-- Container für Eingaben -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/EingabeContainer"
+        android:layout_width="363dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="24dp"
+        android:background="#ECEDD6"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <!-- Gefallen Text -->
+        <TextView
+            android:id="@+id/gefallenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="16dp"
+            android:text="Gefallen: "
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Edit Gefallen -->
+        <EditText
+            android:id="@+id/editGefallenText"
+            android:layout_width="218dp"
+            android:layout_height="146dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
+            android:hint="Schreibe einen Gefallen ... "
+            android:padding="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toEndOf="@+id/gefallenText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Anzahl Text -->
+        <TextView
+            android:id="@+id/anzahlText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="72dp"
+            android:text="Anzahl: "
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editGefallenText" />
+
+        <!-- Edit Anzahl -->
+        <EditText
+            android:id="@+id/editAnzahlText"
+            android:layout_width="72dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/anzahlText"
+            app:layout_constraintTop_toBottomOf="@+id/editGefallenText"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Creditor Text-->
+        <TextView
+            android:id="@+id/creditorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="72dp"
+            android:text="Creditor: "
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editAnzahlText" />
+
+        <!-- Edit Creditor -->
+        <EditText
+            android:id="@+id/editCreditorText"
+            android:layout_width="107dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="69dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintStart_toEndOf="@+id/creditorText"
+            app:layout_constraintTop_toBottomOf="@+id/editAnzahlText"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Buttons -->
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#92AA70"
+            android:text="Cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anzahlText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <!-- Senden Button -->
+        <Button
+            android:id="@+id/sendenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="#92AA70"
+            android:text="Senden"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anzahlText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

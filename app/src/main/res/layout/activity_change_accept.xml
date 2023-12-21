@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Überschrift -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="365dp"
+        android:layout_height="71dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="40sp"
+        android:text="Schuldschein-Änderung von (Name) annehmen?"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"/>
+
+    <!-- Container für Eingaben -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/EingabeContainer"
+        android:layout_width="363dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="24dp"
+        android:background="#ECEDD6"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <!-- Gefallen Text -->
+        <TextView
+            android:id="@+id/gefallenText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:text="Gefallen: "
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Edit Gefallen -->
+        <EditText
+            android:id="@+id/editGefallenText"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="@color/white"
+            android:hint="Schreibe einen Gefallen ... "
+            android:padding="50dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/gefallenText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Anzahl Text -->
+        <TextView
+            android:id="@+id/anzahlText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="76dp"
+            android:text="Anzahl: "
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editGefallenText" />
+
+        <!-- Edit Anzahl -->
+        <EditText
+            android:id="@+id/editAnzahlText"
+            android:layout_width="72dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="72dp"
+            android:background="@color/white"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/anzahlText"
+            app:layout_constraintTop_toBottomOf="@+id/editGefallenText"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Buttons -->
+
+        <!-- Deny Button -->
+
+        <!-- Change Button -->
+
+        <!-- Accept Button -->
+        <Button
+            android:id="@+id/denyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#92AA70"
+            android:text="Deny"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/acceptButton"
+            app:layout_constraintHorizontal_bias="0.324"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anzahlText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/acceptButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="36dp"
+            android:backgroundTint="#92AA70"
+            android:text="Accept"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anzahlText"
+            app:layout_constraintVertical_bias="0.058" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
