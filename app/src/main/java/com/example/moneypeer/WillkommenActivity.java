@@ -42,4 +42,6 @@ public class WillkommenActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    // Kann ich pushen
 }
