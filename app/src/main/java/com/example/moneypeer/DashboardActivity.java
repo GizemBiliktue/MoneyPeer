@@ -7,10 +7,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.moneypeer.SchuldscheinBekommenActivity;
-import com.example.moneypeer.SchuldscheinErstellenActivity;
-import com.example.moneypeer.SchuldscheinWeiterleitenActivity;
-
 public class DashboardActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
         TextView credits = findViewById(R.id.creditsText);
         TextView depts = findViewById(R.id.deptsText);
         Button gefallenSenden = findViewById(R.id.gefallenSendenButton);
-        Button gefallenAnfordern = findViewById(R.id.gefallenAnfordernButton);
+        Button gefallenBekommen = findViewById(R.id.gefallenBekommenButton);
         Button gefallenWeiterleiten = findViewById(R.id.gefallenWeiterleitenButton);
 
         if (getIntent().hasExtra("NAME_EXTRA")) {
@@ -31,6 +27,7 @@ public class DashboardActivity extends AppCompatActivity {
             String willkommenName = "Herzlich Willkommen "+ name + "!";
             header.setText(willkommenName);
         }
+        //TODO Name muss man immer sehen können in bash
 
         // Hier kannst du weitere Aktionen für die Views festlegen, z. B. Klickereignisse usw.
         // Z.B.:
@@ -41,9 +38,9 @@ public class DashboardActivity extends AppCompatActivity {
 
         });
 
-        gefallenAnfordern.setOnClickListener(v -> {
+        gefallenBekommen.setOnClickListener(v -> {
             // Aktion für Gefallen anfordern Button
-            Intent intent = new Intent(DashboardActivity.this, SchuldscheinBekommenActivity.class);
+            Intent intent = new Intent(DashboardActivity.this, SchuldscheinBekommenListe.class);
             startActivity(intent);
         });
 

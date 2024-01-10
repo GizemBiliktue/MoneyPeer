@@ -37,6 +37,9 @@
     <!-- Depts Text -->
 
     <!-- Scroll Credits -->
+
+    <!-- Scroll Depts -->
+
     <TextView
         android:id="@+id/deptsText"
         android:layout_width="wrap_content"
@@ -46,16 +49,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scrollDepts"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintHorizontal_bias="0.748"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/willkommenHeader" />
 
-    <!-- Scroll Depts -->
     <ScrollView
         android:id="@+id/scrollCredits"
         android:layout_width="164dp"
         android:layout_height="300dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:background="#FBFFF1"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/gefallenSendenButton"
@@ -144,11 +146,15 @@
     <!-- Buttons -->
 
     <!-- Gefallen senden Button -->
+
+    <!-- Gefallen anfordern Button -->
+
+    <!-- Gefallen weiterleiten Button -->
     <Button
         android:id="@+id/gefallenSendenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="412dp"
+        android:layout_marginTop="432dp"
         android:backgroundTint="#92AA70"
         android:text="Gefallen senden"
         app:layout_constraintEnd_toEndOf="parent"
@@ -156,22 +162,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/willkommenHeader" />
 
-    <!-- Gefallen anfordern Button -->
     <Button
-        android:id="@+id/gefallenAnfordernButton"
+        android:id="@+id/gefallenBekommenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"
         android:backgroundTint="#92AA70"
-        android:text="Gefallen anfordern"
+        android:text="Gefallen bekommen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gefallenSendenButton"
-        app:layout_constraintVertical_bias="0.566" />
+        app:layout_constraintVertical_bias="0.937" />
 
-    <!-- Gefallen weiterleiten Button -->
     <Button
         android:id="@+id/gefallenWeiterleitenButton"
         android:layout_width="wrap_content"
@@ -181,7 +185,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gefallenAnfordernButton"
+        app:layout_constraintTop_toBottomOf="@+id/gefallenBekommenButton"
         app:layout_constraintVertical_bias="0.375" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/creditsListeGefallen"
+        android:layout_width="52dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="50px"
+        android:layout_marginRight="230px"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollCredits"
+        app:layout_constraintEnd_toEndOf="@+id/scrollCredits"
+        app:layout_constraintStart_toStartOf="@+id/scrollCredits"
+        app:layout_constraintTop_toTopOf="@+id/scrollCredits" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/creditsListeStatus"
+        android:layout_width="45dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="50px"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollCredits"
+        app:layout_constraintEnd_toEndOf="@+id/scrollCredits"
+        app:layout_constraintStart_toEndOf="@+id/creditsListeGefallen"
+        app:layout_constraintTop_toTopOf="@+id/scrollCredits" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

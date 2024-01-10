@@ -101,6 +101,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editAnzahlText" />
 
         <!-- Edit Creditor -->
+        <!-- TODO Auswahl option, verbindungen, Geräte werden angezeigt-->
         <EditText
             android:id="@+id/editCreditorText"
             android:layout_width="107dp"

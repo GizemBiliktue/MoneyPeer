@@ -36,7 +36,7 @@ public class SchuldscheinWeiterleitenActivity extends AppCompatActivity {
         TextView credits = findViewById(R.id.creditsText);
         TextView depts = findViewById(R.id.deptsText);
         Button weiterleiten = findViewById(R.id.weiterleitenButton);
-        Button cancel = findViewById(R.id.cancelButton);
+        Button cancel = findViewById(R.id.cancelButton); //TODO warum rot???
         deptsList = findViewById(R.id.deptsList);
         creditsList = findViewById(R.id.creditsList);
 
@@ -53,5 +53,7 @@ public class SchuldscheinWeiterleitenActivity extends AppCompatActivity {
             Intent intent = new Intent(SchuldscheinWeiterleitenActivity.this, DashboardActivity.class);
             startActivity(intent);
         });
+
+        // TODO Pop up
     }
 }
