@@ -3,16 +3,20 @@ package com.example.moneypeer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class SchuldscheinBekommenActivity extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schuldschein_bekommen);
+        sharedPreferences = getSharedPreferences("StatusPrefs", MODE_PRIVATE);
 
         // Verknüpfung mit den Views im Layout
         TextView header = findViewById(R.id.header);
@@ -26,7 +30,13 @@ public class SchuldscheinBekommenActivity extends AppCompatActivity {
         // Z.B.:
         deny.setOnClickListener(v -> {
             // Aktion für Deny Button
-            Intent intent = new Intent(SchuldscheinBekommenActivity.this, DashboardActivity.class);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("item1_status", "denied"); // Beispiel: Aktualisiere den Status für das erste Element
+            editor.apply();
+
+            Intent intent = new Intent(SchuldscheinBekommenActivity.this, SchuldscheinBekommenListe.class);
+            intent.putExtra("position", 0); // Beispiel: Position des ersten Elements
+            intent.putExtra("status", "denied");
             startActivity(intent);
         });
 
@@ -38,7 +48,13 @@ public class SchuldscheinBekommenActivity extends AppCompatActivity {
 
         accept.setOnClickListener(v -> {
             // Aktion für Accept Button
-            Intent intent = new Intent(SchuldscheinBekommenActivity.this, DashboardActivity.class);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("item1_status", "accepted"); // Beispiel: Aktualisiere den Status für das erste Element
+            editor.apply();
+
+            Intent intent = new Intent(SchuldscheinBekommenActivity.this, SchuldscheinBekommenListe.class);
+            intent.putExtra("position", 0); // Beispiel: Position des ersten Elements
+            intent.putExtra("status", "accepted");
             startActivity(intent);
         });
     }

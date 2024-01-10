@@ -1,7 +1,9 @@
 package com.example.moneypeer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,15 @@ public class AnfrageAdapter extends BaseAdapter {
         viewHolder.cancel.setImageResource(R.drawable.cancel);
         viewHolder.edit.setImageResource(R.drawable.edit);
 
+        // Setze die Hintergrundfarbe basierend auf dem Status
+        if (currentItem.getStatus().equals("accepted")) {
+            itemView.setBackgroundColor(Color.GREEN);
+        } else if (currentItem.getStatus().equals("denied")) {
+            itemView.setBackgroundColor(Color.RED);
+        } else {
+            itemView.setBackgroundColor(Color.WHITE);
+        }
+
         // Füge den ClickListener für die Bilder hinzu
         viewHolder.tick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +79,8 @@ public class AnfrageAdapter extends BaseAdapter {
                 // Hier die Aktion für das erste Bild definieren
                 Toast.makeText(context, "Schuldschein bestätigt", Toast.LENGTH_SHORT).show();
                 // Hier kannst du weitere Aktionen ausführen, z.B. eine neue Aktivität starten usw.
-                dataList.get(position).setGreen(true);
+                currentItem.setStatus("accepted");
+                Log.d("StatusUpdate", "Accepted clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
                 notifyDataSetChanged();
             }
         });
@@ -79,7 +91,8 @@ public class AnfrageAdapter extends BaseAdapter {
                 // Hier die Aktion für das zweite Bild definieren
                 Toast.makeText(context, "Schuldschein abgelehnt", Toast.LENGTH_SHORT).show();
                 // Hier weitere Aktionen ausführen
-                dataList.get(position).setRed(true);
+                currentItem.setStatus("denied");
+                Log.d("StatusUpdate", "Denied clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
                 notifyDataSetChanged();
             }
         });
@@ -90,16 +103,19 @@ public class AnfrageAdapter extends BaseAdapter {
                 // Hier die Aktion für das dritte Bild definieren
                 //Toast.makeText(context, "Drittes Bild in Zeile " + position + " geklickt", Toast.LENGTH_SHORT).show();
                 // Weitere Aktionen hier hinzufügen
+                Intent intent = new Intent(context,SchuldscheinBekommenActivity.class);
+                context.startActivity(intent);
             }
         });
 
-        if(dataList.get(position).isGreen()) {
-            int transparentGreen = Color.argb(150, 0, 255, 0); // Ändere den ersten Wert, um die Transparenz zu steuern (0 = transparent, 255 = undurchsichtig)
+        // Setze die Hintergrundfarbe basierend auf dem Status des aktuellen Elements
+        if (currentItem.getStatus().equals("accepted")) {
+            int transparentGreen = Color.argb(150, 0, 255, 0);
             itemView.setBackgroundColor(transparentGreen);
-        } else if (dataList.get(position).isRed()) {
+        } else if (currentItem.getStatus().equals("denied")) {
             itemView.setBackgroundColor(Color.RED);
         } else {
-            int transparentRed = Color.argb(150, 255, 0, 0); // Ändere den ersten Wert, um die Transparenz zu steuern (0 = transparent, 255 = undurchsichtig)
+            int transparentRed = Color.argb(150, 255, 0, 0);
             itemView.setBackgroundColor(transparentRed);
         }
 
