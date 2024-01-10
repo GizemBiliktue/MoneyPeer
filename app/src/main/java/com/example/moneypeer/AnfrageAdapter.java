@@ -1,20 +1,22 @@
 package com.example.moneypeer;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class AnfrageAdapter extends BaseAdapter {
     private Context context;
-    private List<String> dataList;
+    private List<ListItem> dataList;
 
-    public AnfrageAdapter(Context context, List<String> dataList) {
+    public AnfrageAdapter(Context context, List<ListItem> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
@@ -43,29 +45,72 @@ public class AnfrageAdapter extends BaseAdapter {
             itemView = LayoutInflater.from(context).inflate(R.layout.list_anfragen, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.textView = itemView.findViewById(R.id.textViewElement);
-            viewHolder.imageView1 = itemView.findViewById(R.id.imageView1);
-            viewHolder.imageView2 = itemView.findViewById(R.id.imageView2);
-            viewHolder.imageView3 = itemView.findViewById(R.id.imageView3);
+            viewHolder.tick = itemView.findViewById(R.id.tick);
+            viewHolder.cancel = itemView.findViewById(R.id.cancel);
+            viewHolder.edit = itemView.findViewById(R.id.edit);
             itemView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) itemView.getTag();
         }
 
-        String currentItem = (String) getItem(position);
-        viewHolder.textView.setText(currentItem);
+        ListItem currentItem = dataList.get(position);
+        viewHolder.textView.setText(currentItem.getText());
 
         // Setze die Bilder basierend auf deinen Anforderungen
-        viewHolder.imageView1.setImageResource(R.drawable.tick);
-        viewHolder.imageView2.setImageResource(R.drawable.cancel);
-        viewHolder.imageView3.setImageResource(R.drawable.edit);
+        viewHolder.tick.setImageResource(R.drawable.tick);
+        viewHolder.cancel.setImageResource(R.drawable.cancel);
+        viewHolder.edit.setImageResource(R.drawable.edit);
+
+        // Füge den ClickListener für die Bilder hinzu
+        viewHolder.tick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hier die Aktion für das erste Bild definieren
+                Toast.makeText(context, "Schuldschein bestätigt", Toast.LENGTH_SHORT).show();
+                // Hier kannst du weitere Aktionen ausführen, z.B. eine neue Aktivität starten usw.
+                dataList.get(position).setGreen(true);
+                notifyDataSetChanged();
+            }
+        });
+
+        viewHolder.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hier die Aktion für das zweite Bild definieren
+                Toast.makeText(context, "Schuldschein abgelehnt", Toast.LENGTH_SHORT).show();
+                // Hier weitere Aktionen ausführen
+                dataList.get(position).setRed(true);
+                notifyDataSetChanged();
+            }
+        });
+
+        viewHolder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hier die Aktion für das dritte Bild definieren
+                //Toast.makeText(context, "Drittes Bild in Zeile " + position + " geklickt", Toast.LENGTH_SHORT).show();
+                // Weitere Aktionen hier hinzufügen
+            }
+        });
+
+        if(dataList.get(position).isGreen()) {
+            int transparentGreen = Color.argb(150, 0, 255, 0); // Ändere den ersten Wert, um die Transparenz zu steuern (0 = transparent, 255 = undurchsichtig)
+            itemView.setBackgroundColor(transparentGreen);
+        } else if (dataList.get(position).isRed()) {
+            itemView.setBackgroundColor(Color.RED);
+        } else {
+            int transparentRed = Color.argb(150, 255, 0, 0); // Ändere den ersten Wert, um die Transparenz zu steuern (0 = transparent, 255 = undurchsichtig)
+            itemView.setBackgroundColor(transparentRed);
+        }
 
         return itemView;
     }
 
     private static class ViewHolder {
         TextView textView;
-        ImageView imageView1;
-        ImageView imageView2;
-        ImageView imageView3;
+        ImageView tick;
+        ImageView cancel;
+        ImageView edit;
     }
+
 }
