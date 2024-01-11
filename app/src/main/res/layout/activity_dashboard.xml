@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:text="Status"
+                    android:text="Name"
                     android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="8dp"
-                    android:text="Status"
+                    android:text="Name"
                     android:textAlignment="center" />
             </LinearLayout>
         </LinearLayout>
