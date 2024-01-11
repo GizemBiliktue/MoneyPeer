@@ -104,21 +104,6 @@
 
         <!-- Edit Creditor -->
         <!-- TODO Auswahl option, verbindungen, Geräte werden angezeigt-->
-        <EditText
-            android:id="@+id/editCreditorText"
-            android:layout_width="106dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="69dp"
-            android:background="@color/white"
-            android:ems="10"
-            android:inputType="text"
-            android:padding="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.054"
-            app:layout_constraintStart_toEndOf="@+id/creditorText"
-            app:layout_constraintTop_toBottomOf="@+id/editAnzahlText"
-            tools:ignore="MissingConstraints" />
 
         <!-- Buttons -->
 
@@ -148,6 +133,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/anzahlText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/creditorsList"
+            android:layout_width="229dp"
+            android:layout_height="94dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/sendenButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/creditorText"
+            app:layout_constraintTop_toBottomOf="@+id/editAnzahlText"
+            app:layout_constraintVertical_bias="0.459" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

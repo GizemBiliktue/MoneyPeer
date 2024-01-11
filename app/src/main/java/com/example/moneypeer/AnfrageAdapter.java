@@ -15,8 +15,8 @@ import android.widget.Toast;
 import java.util.List;
 
 public class AnfrageAdapter extends BaseAdapter {
-    private Context context;
-    private List<ListItem> dataList;
+    private final Context context;
+    private final List<ListItem> dataList;
 
     public AnfrageAdapter(Context context, List<ListItem> dataList) {
         this.context = context;
@@ -73,39 +73,30 @@ public class AnfrageAdapter extends BaseAdapter {
         }
 
         // Füge den ClickListener für die Bilder hinzu
-        viewHolder.tick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hier die Aktion für das erste Bild definieren
-                Toast.makeText(context, "Schuldschein bestätigt", Toast.LENGTH_SHORT).show();
-                // Hier kannst du weitere Aktionen ausführen, z.B. eine neue Aktivität starten usw.
-                currentItem.setStatus("accepted");
-                Log.d("StatusUpdate", "Accepted clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
-                notifyDataSetChanged();
-            }
+        viewHolder.tick.setOnClickListener(v -> {
+            // Hier die Aktion für das erste Bild definieren
+            Toast.makeText(context, "Schuldschein bestätigt", Toast.LENGTH_SHORT).show();
+            // Hier kannst du weitere Aktionen ausführen, z.B. eine neue Aktivität starten usw.
+            currentItem.setStatus("accepted");
+            Log.d("StatusUpdate", "Accepted clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
+            notifyDataSetChanged();
         });
 
-        viewHolder.cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hier die Aktion für das zweite Bild definieren
-                Toast.makeText(context, "Schuldschein abgelehnt", Toast.LENGTH_SHORT).show();
-                // Hier weitere Aktionen ausführen
-                currentItem.setStatus("denied");
-                Log.d("StatusUpdate", "Denied clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
-                notifyDataSetChanged();
-            }
+        viewHolder.cancel.setOnClickListener(v -> {
+            // Hier die Aktion für das zweite Bild definieren
+            Toast.makeText(context, "Schuldschein abgelehnt", Toast.LENGTH_SHORT).show();
+            // Hier weitere Aktionen ausführen
+            currentItem.setStatus("denied");
+            Log.d("StatusUpdate", "Denied clicked for position: " + position + " Status: " + currentItem.getStatus()); // Logging hinzufügen
+            notifyDataSetChanged();
         });
 
-        viewHolder.edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Hier die Aktion für das dritte Bild definieren
-                //Toast.makeText(context, "Drittes Bild in Zeile " + position + " geklickt", Toast.LENGTH_SHORT).show();
-                // Weitere Aktionen hier hinzufügen
-                Intent intent = new Intent(context,SchuldscheinBekommenActivity.class);
-                context.startActivity(intent);
-            }
+        viewHolder.edit.setOnClickListener(v -> {
+            // Hier die Aktion für das dritte Bild definieren
+            //Toast.makeText(context, "Drittes Bild in Zeile " + position + " geklickt", Toast.LENGTH_SHORT).show();
+            // Weitere Aktionen hier hinzufügen
+            Intent intent = new Intent(context,SchuldscheinBekommenActivity.class);
+            context.startActivity(intent);
         });
 
         // Setze die Hintergrundfarbe basierend auf dem Status des aktuellen Elements
